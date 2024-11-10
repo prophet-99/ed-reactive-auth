@@ -1,0 +1,68 @@
+<main class="flex justify-content-center align-items-center h-screen">
+  <p-card class="w-full lg:w-6">
+    <section class="text-center mb-5">
+      <img
+        class="mb-2"
+        src="assets/enterprise/logo.png"
+        alt="Image"
+        height="60"
+      />
+      <div class="text-900 text-3xl font-medium mb-3">
+        ¡Bienvenido de nuevo!
+      </div>
+    </section>
+    <section>
+      <!-- EMAIL SECTION -->
+      <article class="mb-3 flex flex-column gap-2">
+        <label for="email" class="block text-900 font-medium">
+          Email
+        </label>
+        <input
+          class="w-full ng-invalid ng-dirty"
+          id="email"
+          type="text"
+          placeholder="Ingrese su correo"
+          pInputText
+        />
+        <small class="text-red-500">
+          El correo es requerido
+        </small>
+      </article>
+      <!-- EMAIL SECTION -->
+      <!-- PASSWORD SECTION -->
+      <article class="mb-3 flex flex-column gap-2">
+        <label for="password" class="block text-900 font-medium">
+          Contraseña
+        </label>
+        <input
+          class="w-full ng-invalid ng-dirty"
+          id="password"
+          type="password"
+          placeholder="Ingrese su contraseña"
+          pInputText
+        />
+        <small class="text-red-500">
+          La contraseña es requerida
+        </small>
+      </article>
+      <!-- PASSWORD SECTION -->
+      <!-- CHECKBOX SECTION -->
+      <article class="flex align-items-center mb-6">
+        <p-checkbox
+          styleClass="mr-2"
+          id="rememberme"
+          [binary]="true"
+        ></p-checkbox>
+        <label for="rememberme">Recuérdame</label>
+      </article>
+      <!-- CHECKBOX SECTION -->
+      <button
+        class="w-full"
+        pButton
+        pRipple
+        label="Ingresar"
+        icon="pi pi-user"
+      ></button>
+    </section>
+  </p-card>
+</main>
