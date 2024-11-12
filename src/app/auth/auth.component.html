@@ -11,57 +11,57 @@
         ¡Bienvenido de nuevo!
       </div>
     </section>
-    <section>
+    <section [formGroup]="authForm">
+      <app-info />
       <!-- EMAIL SECTION -->
       <article class="mb-3 flex flex-column gap-2">
         <label for="email" class="block text-900 font-medium">
           Email
         </label>
         <input
-          class="w-full ng-invalid ng-dirty"
+          class="w-full"
+          [ngClass]="{ 'ng-invalid ng-dirty': hasGenericError('email') }"
           id="email"
           type="text"
           placeholder="Ingrese su correo"
           pInputText
+          formControlName="email"
         />
-        <small class="text-red-500">
+        <small class="text-red-500" *ngIf="hasControlError('email', 'required')">
           El correo es requerido
+        </small>
+        <small class="text-red-500" *ngIf="hasControlError('email', 'email')">
+          El correo debe ser válido
         </small>
       </article>
       <!-- EMAIL SECTION -->
       <!-- PASSWORD SECTION -->
-      <article class="mb-3 flex flex-column gap-2">
+      <article class="mb-6 flex flex-column gap-2">
         <label for="password" class="block text-900 font-medium">
           Contraseña
         </label>
         <input
-          class="w-full ng-invalid ng-dirty"
+          class="w-full"
+          [ngClass]="{ 'ng-invalid ng-dirty': hasGenericError('password') }"
           id="password"
           type="password"
           placeholder="Ingrese su contraseña"
           pInputText
+          formControlName="password"
         />
-        <small class="text-red-500">
+        <small class="text-red-500" *ngIf="hasControlError('password', 'required')">
           La contraseña es requerida
         </small>
       </article>
       <!-- PASSWORD SECTION -->
-      <!-- CHECKBOX SECTION -->
-      <article class="flex align-items-center mb-6">
-        <p-checkbox
-          styleClass="mr-2"
-          id="rememberme"
-          [binary]="true"
-        ></p-checkbox>
-        <label for="rememberme">Recuérdame</label>
-      </article>
-      <!-- CHECKBOX SECTION -->
       <button
         class="w-full"
         pButton
         pRipple
         label="Ingresar"
         icon="pi pi-user"
+        [disabled]="authForm.invalid"
+        (click)="authenticate()"
       ></button>
     </section>
   </p-card>

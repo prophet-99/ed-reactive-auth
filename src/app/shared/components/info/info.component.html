@@ -1,0 +1,6 @@
+<p-messages 
+  *ngIf="(infoStateService.info$ | async) as info"
+  [value]="[{ severity: info.severity, detail: info.detail}]" 
+  [enableService]="false" 
+  [closable]="false"
+/>
